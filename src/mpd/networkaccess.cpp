@@ -610,6 +610,8 @@ void NetworkAccess::getStatus() {
         }
         mPlaylistversion = playlistversion;
         // qDebug() << "::getStatus() return";
+
+        getOutputs();
     }
 }
 

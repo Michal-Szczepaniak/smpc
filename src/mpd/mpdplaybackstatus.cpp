@@ -128,7 +128,6 @@ quint8 MPDPlaybackStatus::getSingle()
     return pSingle;
 }
 
-
 quint32 MPDPlaybackStatus::getLength()
 {
     return pLength;
