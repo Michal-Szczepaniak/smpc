@@ -204,7 +204,6 @@ void MPDPlaybackStatus::setVolume(quint8 volume)
 {
     if (pVolume != volume) {
         pVolume = volume;
-        qDebug() << volume;
         emit volumeChanged(volume);
     }
 }

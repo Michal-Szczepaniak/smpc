@@ -565,11 +565,16 @@ void NetworkAccess::getStatus() {
 
         if (newSong) {
             // FIXME why clearPlayback?
-            // mPlaybackStatus->clearPlayback();
+            mPlaybackStatus->clearPlayback();
             response = "";
             sendMPDCommand("currentsong\n");
-            mPlaybackStatus->setArtist(""); // because radio doesn't set Artist
-                                            // - possibly use name instead...
+            mPlaybackStatus->setBitrate(0);
+            mPlaybackStatus->setTrackNo(0);
+            mPlaybackStatus->setTitle("");
+            mPlaybackStatus->setAlbum("");
+            mPlaybackStatus->setArtist("");
+            mPlaybackStatus->setLength(0);
+            mPlaybackStatus->setCurrentTime(0);
             MPD_WHILE_PARSE_LOOP {
                 mTCPSocket->waitForReadyRead(READYREAD);
                 while (mTCPSocket->canReadLine()) {
